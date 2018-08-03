@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     var photoOutput: AVCapturePhotoOutput?
     
     var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
+    
+    var image: UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +60,11 @@ class ViewController: UIViewController {
         do {
             let captureDeviceInput = try AVCaptureDeviceInput(device: currentCamera!)
             captureSession.addInput(captureDeviceInput)
+            //image is captured here
+            photoOutput = AVCapturePhotoOutput()
             //set to .jpeg format
             photoOutput?.setPreparedPhotoSettingsArray([AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])], completionHandler: nil)
+            captureSession.addOutput(photoOutput!)
         } catch {
             print(error)
         }
@@ -82,10 +87,26 @@ class ViewController: UIViewController {
     }
 
     @IBAction func cameraButton_TouchUpInside(_ sender: Any) {
-        performSegue(withIdentifier: "showPhoto_Segue", sender: nil)
+        let settings = AVCapturePhotoSettings()
+        photoOutput?.capturePhoto(with: settings, delegate: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPhoto_Segue" {
+            let previewVC = segue.destination as! PreviewViewController
+            previewVC.image = self.image
+        }
+    }
+    
+}
 
-
+//this protocol contains methods for monitoring and recieving results from a photo capture output.
+extension ViewController: AVCapturePhotoCaptureDelegate {
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        if let imageData = photo.fileDataRepresentation() {
+            image = UIImage(data: imageData)
+            performSegue(withIdentifier: "showPhoto_Segue", sender: nil)
+        }
+    }
 }
 

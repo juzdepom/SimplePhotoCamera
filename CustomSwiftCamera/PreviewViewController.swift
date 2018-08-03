@@ -9,16 +9,23 @@
 import UIKit
 
 class PreviewViewController: UIViewController {
-
+    
+    @IBOutlet weak var photo: UIImageView!
+    
+    var image: UIImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        photo.image = self.image
+        // Do any additional setupe after loading the view.
     }
 
     @IBAction func cancelButton_TouchUpInside(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveButton_TouchUpInside(_ sender: Any) {
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        dismiss(animated: true, completion: nil)
     }
 }
