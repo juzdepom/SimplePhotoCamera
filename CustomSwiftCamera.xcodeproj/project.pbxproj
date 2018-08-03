@@ -12,6 +12,7 @@
 		A3A7970E211370050041E5A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3A7970C211370050041E5A2 /* Main.storyboard */; };
 		A3A79710211370050041E5A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3A7970F211370050041E5A2 /* Assets.xcassets */; };
 		A3A79713211370050041E5A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3A79711211370050041E5A2 /* LaunchScreen.storyboard */; };
+		A3A7971B21138B7B0041E5A2 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A7971A21138B7B0041E5A2 /* PreviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		A3A7970F211370050041E5A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3A79712211370050041E5A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3A79714211370050041E5A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3A7971A21138B7B0041E5A2 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		A3A79707211370050041E5A2 /* CustomSwiftCamera */ = {
 			isa = PBXGroup;
 			children = (
+				A3A7971A21138B7B0041E5A2 /* PreviewViewController.swift */,
 				A3A79708211370050041E5A2 /* AppDelegate.swift */,
 				A3A7970A211370050041E5A2 /* ViewController.swift */,
 				A3A7970C211370050041E5A2 /* Main.storyboard */,
@@ -138,6 +141,7 @@
 			files = (
 				A3A7970B211370050041E5A2 /* ViewController.swift in Sources */,
 				A3A79709211370050041E5A2 /* AppDelegate.swift in Sources */,
+				A3A7971B21138B7B0041E5A2 /* PreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
